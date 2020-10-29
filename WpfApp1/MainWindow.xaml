@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Фазлутдинова Альбина УТС-21" Height="450" Width="800">
     <Grid>
-        <Label Content="Шифр Цезаря" HorizontalAlignment="Left" Margin="61,42,0,0" VerticalAlignment="Top" Width="185" Height="39" FontSize="24"/>
-        <Label Content="Введите ключ:" HorizontalAlignment="Left" Margin="61,122,0,0" VerticalAlignment="Top" Width="135" FontSize="18"/>
-        <TextBox x:Name="tbS" HorizontalAlignment="Left" Margin="236,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" Height="26"/>
-        <Label Content="Введите слово ЗАГЛАВНЫМИ БУКВАМИ" HorizontalAlignment="Left" Margin="61,180,0,0" VerticalAlignment="Top" Width="381" FontSize="20"/>
-        <TextBox x:Name="tb" HorizontalAlignment="Left" Margin="61,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Height="34"/>
-        <Button Content="Зашифровать" HorizontalAlignment="Left" Margin="154,306,0,0" VerticalAlignment="Top" Height="34" Width="82" Click="Button_Click"/>
-        <TextBox x:Name="tbRes" HorizontalAlignment="Left" Margin="61,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Height="34" IsReadOnlyCaretVisible="True"/>
+        <Label Content="Шифр Цезаря" HorizontalAlignment="Left" Margin="61,24,0,0" VerticalAlignment="Top" Width="185" Height="39" FontSize="24"/>
+        <Label Content="Введите ключ:" HorizontalAlignment="Left" Margin="61,83,0,0" VerticalAlignment="Top" Width="135" FontSize="18"/>
+        <TextBox x:Name="tbS" HorizontalAlignment="Left" Margin="230,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" Height="26" FontSize="18"/>
+        <Label Content="Введите слово" HorizontalAlignment="Left" Margin="315,145,0,0" VerticalAlignment="Top" Width="380" FontSize="20" IsEnabled="False"/>
+        <TextBox x:Name="tb" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="302" Height="34" FontSize="18"/>
+        <Button Content="Зашифровать" HorizontalAlignment="Left" Margin="152,253,0,0" VerticalAlignment="Top" Height="34" Width="120" Click="Button_Click" RenderTransformOrigin="0.512,-0.544" FontSize="16"/>
+        <TextBox x:Name="tbRes1" HorizontalAlignment="Left" Margin="61,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="34" IsReadOnlyCaretVisible="True" FontSize="18"/>
+        <Button x:Name="btn2" Content="Дешифровать" HorizontalAlignment="Left" Margin="506,253,0,0" VerticalAlignment="Top" Width="120" Height="34" FontSize="16" Click="btn2_Click"/>
+        <TextBox x:Name="tbRes2" HorizontalAlignment="Left" Margin="416,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="34" IsReadOnlyCaretVisible="True" FontSize="18"/>
 
     </Grid>
 </Window>

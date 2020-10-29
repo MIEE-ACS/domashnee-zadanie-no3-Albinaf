@@ -25,35 +25,142 @@ namespace WpfApp1
             InitializeComponent();
         }
 
+
+        //шифрование
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string s = tb.Text;
+            string source_text = tb.Text;
             int key = int.Parse(tbS.Text);
-            int n = 1;
 
-            string s1 = "";
-            string alfphabet = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЬЪЭЮЯ";
-            int m = alfphabet.Length;
+            string cyrillic_s = "абвгдеёжзийклмнопрстуфхцчшщьъэюя";
+            string cyrillic_b = cyrillic_s.ToUpper();
+            string latin_s = "abcdefghijklmnopqrstuvwxyz";
+            string latin_b = latin_s.ToUpper();
 
-            for (int i = 0; i < s.Length; i++)
+            string result_text = "";
+
+            foreach (char s in source_text)
             {
-                for (int j = 0; j < m; j++)
+                if (Char.IsUpper(s))
                 {
-                    if (s[i] == alfphabet[j])
+                    if (cyrillic_b.IndexOf(s) > -1)
                     {
-                        int t = j * n + key;
+                        int letterNumber = cyrillic_b.IndexOf(s);
 
-                        while (t >= m)
-                            t -= m;
+                        int newLetterNumber = (letterNumber + key + cyrillic_b.Length) % cyrillic_b.Length;
 
-                        s1 = s1 + alfphabet[t];
+                        result_text += cyrillic_b[newLetterNumber];
+                    }
+                    else if (latin_b.IndexOf(s) > -1)
+                    {
+                        int letterNumber = latin_b.IndexOf(s);
+
+                        int newLetterNumber = (letterNumber + key + latin_b.Length) % latin_b.Length;
+
+                        result_text += latin_b[newLetterNumber];
+                    }
+                    else
+                    {
+                        result_text += s;
                     }
                 }
+                else
+                {
+                    if (cyrillic_s.IndexOf(s) > -1)
+                    {
+                        int letterNumber = cyrillic_s.IndexOf(s);
 
+                        int newLetterNumber = (letterNumber + key + cyrillic_s.Length) % cyrillic_s.Length;
+
+                        result_text += cyrillic_s[newLetterNumber];
+                    }
+                    else if (latin_s.IndexOf(s) > -1)
+                    {
+                        int letterNumber = latin_s.IndexOf(s);
+
+                        int newLetterNumber = (letterNumber + key + latin_s.Length) % latin_s.Length;
+
+                        result_text += latin_s[newLetterNumber];
+                    }
+                    else
+                    {
+                        result_text += s;
+                    }
+
+                }
             }
-            tbRes.Text = s1;
+
+            tbRes1.Text = result_text;
+        }
+
+        //дешифрование
+
+        private void btn2_Click(object sender, RoutedEventArgs e)
+        {
+            string source_text = tb.Text;
+            int key = int.Parse(tbS.Text);
+
+            string cyrillic_s = "абвгдеёжзийклмнопрстуфхцчшщьъэюя";
+            string cyrillic_b = cyrillic_s.ToUpper();
+            string latin_s = "abcdefghijklmnopqrstuvwxyz";
+            string latin_b = latin_s.ToUpper();
+
+            string result_text = "";
+
+            foreach (char s in source_text)
+            {
+                if (Char.IsUpper(s))
+                {
+                    if (cyrillic_b.IndexOf(s) > -1)
+                    {
+                        int letterNumber = cyrillic_b.IndexOf(s);
+
+                        int newLetterNumber = (letterNumber - key + cyrillic_b.Length) % cyrillic_b.Length;
+
+                        result_text += cyrillic_b[newLetterNumber];
+                    }
+                    else if (latin_b.IndexOf(s) > -1)
+                    {
+                        int letterNumber = latin_b.IndexOf(s);
+
+                        int newLetterNumber = (letterNumber - key + latin_b.Length) % latin_b.Length;
+
+                        result_text += latin_b[newLetterNumber];
+                    }
+                    else
+                    {
+                        result_text += s;
+                    }
+                }
+                else
+                {
+                    if (cyrillic_s.IndexOf(s) > -1)
+                    {
+                        int letterNumber = cyrillic_s.IndexOf(s);
+
+                        int newLetterNumber = (letterNumber - key + cyrillic_s.Length) % cyrillic_s.Length;
+
+                        result_text += cyrillic_s[newLetterNumber];
+                    }
+                    else if (latin_s.IndexOf(s) > -1)
+                    {
+                        int letterNumber = latin_s.IndexOf(s);
+
+                        int newLetterNumber = (letterNumber - key + latin_s.Length) % latin_s.Length;
+
+                        result_text += latin_s[newLetterNumber];
+                    }
+                    else
+                    {
+                        result_text += s;
+                    }
+
+                }
+            }
+
+            tbRes2.Text = result_text;
         }
     }
 }
-    
 
